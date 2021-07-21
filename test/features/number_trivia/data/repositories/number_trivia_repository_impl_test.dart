@@ -99,7 +99,7 @@ void main() {
 
         // assert
         verify(mockRemoteDataSource.getConcreteNumberTrivia(tNumber));
-        verify(mockLocalDataSource.cashNumberTrivia(tNumberTriviaModel));
+        verify(mockLocalDataSource.cacheNumberTrivia(tNumberTriviaModel));
       });
 
       test(
@@ -202,7 +202,7 @@ void main() {
 
         // assert
         verify(mockRemoteDataSource.getRandomNumberTrivia());
-        verify(mockLocalDataSource.cashNumberTrivia(tNumberTriviaModel));
+        verify(mockLocalDataSource.cacheNumberTrivia(tNumberTriviaModel));
       });
 
       test(
