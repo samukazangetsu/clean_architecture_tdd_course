@@ -10,4 +10,4 @@ class GetTriviaForConcreteNumber extends NumberTriviaEvent {
   GetTriviaForConcreteNumber(this.numberString) : super([numberString]);
 }
 
-class GetTriviaForRandom extends NumberTriviaEvent {}
+class GetTriviaForRandomNumber extends NumberTriviaEvent {}
