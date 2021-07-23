@@ -89,7 +89,7 @@ void main() {
       () async {
         // arrange
         setUpMockInputConverterSucess();
-        when(mockGetRandomNumberTrivia(any))
+        when(mockGetConcreteNumberTrivia(any))
             .thenAnswer((_) async => Right(tNumberTrivia));
 
         // act
@@ -106,7 +106,7 @@ void main() {
       () async {
         // arrange
         setUpMockInputConverterSucess();
-        when(mockGetRandomNumberTrivia(any))
+        when(mockGetConcreteNumberTrivia(any))
             .thenAnswer((_) async => Right(tNumberTrivia));
 
         // assert later
@@ -127,7 +127,7 @@ void main() {
       () async {
         // arrange
         setUpMockInputConverterSucess();
-        when(mockGetRandomNumberTrivia(any))
+        when(mockGetConcreteNumberTrivia(any))
             .thenAnswer((_) async => Left(ServerFailure()));
 
         // assert later
@@ -148,7 +148,7 @@ void main() {
       () async {
         // arrange
         setUpMockInputConverterSucess();
-        when(mockGetRandomNumberTrivia(any))
+        when(mockGetConcreteNumberTrivia(any))
             .thenAnswer((_) async => Left(CacheFailure()));
 
         // assert later
