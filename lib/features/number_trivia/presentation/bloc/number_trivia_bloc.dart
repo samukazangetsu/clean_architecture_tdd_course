@@ -29,10 +29,10 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
         assert(random != null),
         assert(inputConverter != null),
         getConcreteNumberTrivia = concrete,
-        getRandomNumberTrivia = random;
+        getRandomNumberTrivia = random,
+        super(Empty());
 
-  @override
-  NumberTriviaState get initialState => Empty();
+  // NumberTriviaState get initialState => Empty();
 
   @override
   Stream<NumberTriviaState> mapEventToState(

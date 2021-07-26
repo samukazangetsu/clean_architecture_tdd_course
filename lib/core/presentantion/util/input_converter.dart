@@ -4,6 +4,9 @@ import 'package:dartz/dartz.dart';
 class InputConverter {
   Either<Failure, int> stringToUnsignedInteger(String str) {
     try {
+      if (str == null) {
+        throw FormatException();
+      }
       final integer = int.parse(str);
       if (integer < 0) throw FormatException();
       return Right(integer);
