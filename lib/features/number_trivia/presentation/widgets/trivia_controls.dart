@@ -1,4 +1,4 @@
-import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
+import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/cubit/number_trivia_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -68,12 +68,12 @@ class _TriviaControlsState extends State<TriviaControls> {
 
   void dispatchConcrete() {
     controller.clear();
-    BlocProvider.of<NumberTriviaBloc>(context)
-        .add(GetTriviaForConcreteNumber(inputStr));
+    BlocProvider.of<NumberTriviaCubit>(context)
+        .getTriviaForConcreteNumber(inputStr);
   }
 
   void dispatchRandom() {
     controller.clear();
-    BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForRandomNumber());
+    BlocProvider.of<NumberTriviaCubit>(context).getTriviaForRandomNumber();
   }
 }

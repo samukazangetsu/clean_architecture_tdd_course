@@ -40,10 +40,10 @@ class NumberTriviaCubit extends Cubit<NumberTriviaState> {
     final inputEither = inputConverter.stringToUnsignedInteger(str);
 
     inputEither.fold(
-      (l) async* {
+      (l) {
         emit(Error(message: STRING_INVALID_INPUT_FAILURE_MESSAGE));
       },
-      (r) async* {
+      (r) async {
         emit(Loading());
         final failureOrTrivia =
             await getConcreteNumberTrivia(Params(number: r));
@@ -60,9 +60,9 @@ class NumberTriviaCubit extends Cubit<NumberTriviaState> {
     _eitherOrLoadedorErrorState(failureOrTrivia);
   }
 
-  Stream<NumberTriviaState> _eitherOrLoadedorErrorState(
+  _eitherOrLoadedorErrorState(
     Either<Failure, NumberTrivia> failureOrTrivia,
-  ) async* {
+  ) {
     failureOrTrivia.fold(
       (l) => emit(Error(message: _mapFailureToMessage(l))),
       (r) => emit(Loaded(trivia: r)),
