@@ -1,4 +1,4 @@
-part of 'number_trivia_bloc.dart';
+part of 'number_trivia_cubit.dart';
 
 abstract class NumberTriviaState extends Equatable {
   NumberTriviaState([List props = const <dynamic>[]]) : super(props);

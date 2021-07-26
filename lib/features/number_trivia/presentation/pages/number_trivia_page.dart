@@ -1,4 +1,4 @@
-import '../bloc/number_trivia_bloc.dart';
+import '../cubit/number_trivia_cubit.dart';
 import '../widgets/widgets_import.dart';
 import '../../../../injection_container.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +17,9 @@ class NumberTriviaPage extends StatelessWidget {
     );
   }
 
-  BlocProvider<NumberTriviaBloc> buildBody(BuildContext context) {
+  BlocProvider<NumberTriviaCubit> buildBody(BuildContext context) {
     return BlocProvider(
-      create: (_) => serviceLocator<NumberTriviaBloc>(),
+      create: (_) => serviceLocator<NumberTriviaCubit>(),
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -29,7 +29,7 @@ class NumberTriviaPage extends StatelessWidget {
               // Top half
               Container(
                 height: MediaQuery.of(context).size.height / 3,
-                child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
+                child: BlocBuilder<NumberTriviaCubit, NumberTriviaState>(
                   builder: (context, state) {
                     switch (state.runtimeType) {
                       case Empty:

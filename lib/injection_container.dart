@@ -5,7 +5,7 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/data/reposi
 import 'package:clean_architecture_tdd_course/features/number_trivia/domain/repositories/number_trivia_repository.dart';
 import 'package:clean_architecture_tdd_course/features/number_trivia/domain/usecases/get_concrete_number_trivia.dart';
 import 'package:clean_architecture_tdd_course/features/number_trivia/domain/usecases/get_random_number_trivia.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
+import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/cubit/number_trivia_cubit.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,7 +27,7 @@ Future<void> init() async {
 Future<void> initFeatures() async {
   // Bloc
   serviceLocator.registerFactory(
-    () => NumberTriviaBloc(
+    () => NumberTriviaCubit(
       concrete: serviceLocator(),
       random: serviceLocator(),
       inputConverter: serviceLocator(),
