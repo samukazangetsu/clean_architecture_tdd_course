@@ -5,7 +5,6 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/data/dataso
 import 'package:clean_architecture_tdd_course/features/number_trivia/data/models/number_trivia_model.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:matcher/matcher.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../core/fixtures/fixture_reader.dart';

@@ -35,15 +35,15 @@ Future<void> initFeatures() async {
   );
 
   // Use Cases
-  serviceLocator.registerLazySingleton(
+  serviceLocator.registerFactory(
     () => GetConcreteNumberTrivia(serviceLocator()),
   );
-  serviceLocator.registerLazySingleton(
+  serviceLocator.registerFactory(
     () => GetRandomNumberTrivia(serviceLocator()),
   );
 
   // Repository
-  serviceLocator.registerLazySingleton<NumberTriviaRepository>(
+  serviceLocator.registerFactory<NumberTriviaRepository>(
     () => NumberTriviaRepositoryImpl(
       remoteDataSource: serviceLocator(),
       localDataSource: serviceLocator(),
@@ -52,22 +52,22 @@ Future<void> initFeatures() async {
   );
 
   // DataSources
-  serviceLocator.registerLazySingleton<NumberTriviaRemoteDataSource>(
+  serviceLocator.registerFactory<NumberTriviaRemoteDataSource>(
     () => NumberTriviaRemoteDataSourceImpl(
       client: serviceLocator(),
     ),
   );
 
-  serviceLocator.registerLazySingleton<NumberTriviaLocalDataSource>(
+  serviceLocator.registerFactory<NumberTriviaLocalDataSource>(
     () => NumberTriviaLocalDataSourceImpl(
       sharedPreferences: serviceLocator(),
     ),
   );
 
   // Core
-  serviceLocator.registerLazySingleton(() => InputConverter());
+  serviceLocator.registerFactory(() => InputConverter());
 
-  serviceLocator.registerLazySingleton<NetworkInfo>(
+  serviceLocator.registerFactory<NetworkInfo>(
     () => NetworkInfoImpl(
       serviceLocator(),
     ),
@@ -75,7 +75,7 @@ Future<void> initFeatures() async {
 
   //! External
   final sharedePreferences = await SharedPreferences.getInstance();
-  serviceLocator.registerLazySingleton(() => sharedePreferences);
-  serviceLocator.registerLazySingleton(() => http.Client());
-  serviceLocator.registerLazySingleton(() => DataConnectionChecker());
+  serviceLocator.registerFactory(() => sharedePreferences);
+  serviceLocator.registerFactory(() => http.Client());
+  serviceLocator.registerFactory(() => DataConnectionChecker());
 }

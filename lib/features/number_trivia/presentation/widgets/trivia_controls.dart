@@ -37,8 +37,9 @@ class _TriviaControlsState extends State<TriviaControls> {
           children: [
             Expanded(
               child: ElevatedButton(
+                key: Key('search_button'),
                 style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).accentColor,
+                  primary: Theme.of(context).colorScheme.secondary,
                 ),
                 onPressed: dispatchConcrete,
                 child: Text(
@@ -50,8 +51,9 @@ class _TriviaControlsState extends State<TriviaControls> {
             SizedBox(width: 10),
             Expanded(
               child: ElevatedButton(
+                key: Key('get_random_button'),
                 style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).buttonColor,
+                  primary: Theme.of(context).buttonTheme.colorScheme.primary,
                 ),
                 onPressed: dispatchRandom,
                 child: Text(
