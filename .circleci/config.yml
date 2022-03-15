@@ -21,17 +21,18 @@ jobs:
       tag: 2021.10.1
     steps:
       - checkout
-      - android/create-avd:
-          avd-name: myavd
-          install: true
-          system-image: android-31
-      - android/start-emulator:
-          avd-name: myavd
-          no-window: true
-          restore-gradle-cache-prefix: v1a
-      - android/save-gradle-cache:
-          cache-prefix: v1a
-      - run: flutter test integration_test
+      # - android/create-avd:
+      #     avd-name: myavd
+      #     install: true
+      #     system-image: android-31
+      # - android/start-emulator:
+      #     avd-name: myavd
+      #     no-window: true
+      #     restore-gradle-cache-prefix: v1a
+      # - android/save-gradle-cache:
+      #     cache-prefix: v1a
+      # - run: flutter test integration_test
+      - run: sdkmanager --list
 
 workflows:
   test_and_integration_test:
