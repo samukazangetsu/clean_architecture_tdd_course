@@ -9,11 +9,13 @@ jobs:
     docker:
       - image: cirrusci/flutter:2.10.1
     steps:
+      - checkout
       - run: flutter pub get
   test:
     docker:
       - image: cirrusci/flutter:2.10.1
     steps:
+      - checkout
       - run: flutter test
 
 workflows:
