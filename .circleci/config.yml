@@ -10,5 +10,5 @@ workflows:
   test:
     jobs:
       - flutter/lint:
-          version: 2.2.3
+          version: 2.10.1
 
