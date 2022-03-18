@@ -29,6 +29,8 @@ jobs:
       - android/start-emulator:
           avd-name: myavd
           memory: 512
+      - flutter/install_android_gradle
+      - flutter/install_android_gem
       - run: cd ../
       - run: flutter test integration_test
 
@@ -37,5 +39,3 @@ workflows:
     jobs:
       - test
       - integration_test
-      
-
