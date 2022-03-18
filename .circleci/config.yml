@@ -20,6 +20,7 @@ jobs:
       - image: cirrusci/flutter:2.10.1
     steps:
       - checkout
+      - run: flutter pub get
       - run: cd android
       - android/create-avd:
           avd-name: myavd
