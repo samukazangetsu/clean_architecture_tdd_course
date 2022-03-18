@@ -16,15 +16,13 @@ jobs:
       - run: flutter analyze
       - run: flutter test
   integration_test:
-    executor:
-      name: android/android-machine
-      resource-class: large
-      tag: 2021.10.1
+    docker:
+      - image: cirrusci/flutter:2.10.1
     steps:
       - checkout
-      - run: flutter pub get
       - flutter/install_android_gradle
       - flutter/install_android_gem
+      - run: flutter pub get
       - run: cd android
       - android/create-avd:
           avd-name: myavd
