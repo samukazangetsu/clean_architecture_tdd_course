@@ -1,5 +1,7 @@
 # clean_architecture_tdd_course
 
+[![CircleCI](https://circleci.com/gh/samukazangetsu/clean_architecture_tdd_course/tree/circleci-project-setup.svg?style=svg)](https://circleci.com/gh/samukazangetsu/clean_architecture_tdd_course/tree/circleci-project-setup)
+
 A new Flutter project.
 
 ## Getting Started
