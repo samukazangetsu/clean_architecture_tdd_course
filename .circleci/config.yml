@@ -3,6 +3,7 @@
 version: 2.1
 orbs:
   android: circleci/android@2.0.0
+  flutter: circleci/flutter@1.0
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 
@@ -21,6 +22,8 @@ jobs:
       tag: 2021.10.1
     steps:
       - checkout
+      - flutter/install_android_gradle
+      - flutter/install_android_gem
       - run: cd android
       - android/create-avd:
           avd-name: myavd
