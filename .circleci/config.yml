@@ -31,7 +31,7 @@ jobs:
       - android/start-emulator:
           avd-name: myavd
           no-window: true
-          memory: 512
+          memory: 2048
           post-emulator-launch-assemble-command: ''
       - run: flutter test integration_test
 
