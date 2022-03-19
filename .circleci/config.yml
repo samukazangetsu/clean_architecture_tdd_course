@@ -33,6 +33,7 @@ jobs:
           no-window: true
           memory: 2048
           post-emulator-launch-assemble-command: ''
+          wait-for-emulator: false
       - run: flutter test integration_test
 
 workflows:
