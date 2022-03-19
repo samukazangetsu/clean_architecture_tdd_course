@@ -16,20 +16,22 @@ jobs:
       - run: flutter analyze
       - run: flutter test
   integration_test:
-    docker:
-      - image: cirrusci/flutter:2.10.1
+    executor:
+      name: android/android-machine
+      tag: 2021.10.1
     steps:
       - checkout
-      - run: flutter pub get
-      - run: cd android
+      - flutter/install_sdk_and_pub:
+          version: 2.10.1
+      - flutter/install_android_gradle
       - android/create-avd:
           avd-name: myavd
           install: true
           system-image: system-images;android-31;default;x86_64
       - android/start-emulator:
           avd-name: myavd
+          no-window: true
           memory: 512
-      - run: cd ../
       - run: flutter test integration_test
 
 workflows:
