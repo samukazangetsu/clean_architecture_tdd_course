@@ -32,6 +32,7 @@ jobs:
           avd-name: myavd
           no-window: true
           memory: 512
+          post-emulator-launch-assemble-command: ''
       - run: flutter test integration_test
 
 workflows:
