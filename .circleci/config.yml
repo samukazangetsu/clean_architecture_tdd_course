@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - flutter/install_sdk_and_pub:
-          version: 2.10.1
+          flutter_version: 2.10.1
       - flutter/install_android_gradle
       - android/create-avd:
           avd-name: myavd
