@@ -34,7 +34,7 @@ jobs:
           post-emulator-launch-assemble-command: ''
       - run: 
           command: |
-            $(circleci tests glob "integration_test/*_test.dart") | xargs -n 1 flutter test
+            $(circleci tests glob "integration_test/*_test.dart") | xargs -n 1 -print -exec flutter test
 
 workflows:
   test_and_integration_test:
