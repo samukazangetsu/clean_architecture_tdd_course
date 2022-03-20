@@ -33,8 +33,7 @@ jobs:
           avd-name: myavd
           post-emulator-launch-assemble-command: ''
       - run: 
-          command: |
-            echo $(circleci tests glob "integration_test/*_test.dart")
+          command: >
             $(circleci tests glob "integration_test/*_test.dart")
             | circleci tests split --split-by=timings 
             | xargs -n 1 -print -exec flutter test
