@@ -15,6 +15,28 @@ jobs:
       - checkout
       - run: flutter analyze
       - run: flutter test
+  check-existance-of-unnecessary-files:
+    docker:
+      - image: cirrusci/flutter:2.10.1
+    steps:
+      - checkout
+      - run: 
+          command: |
+            hasFileToDelete=false
+            for dartFile in $(find . -type f -name '*.dart' ! -path '*/test/*'); do
+              echo $dartFile
+              if grep -q 'main()' $dartFile; then
+                continue
+              fi
+              rm $dartFile
+              if flutter analyze &> /dev/null; then
+                print_filepath_to_delete $dartFile
+                hasFileToDelete=true
+              fi
+              git checkout -- $dartFile
+            done
+            exit $(! $hasFileToDelete)
+        
   integration_test:
     executor:
       name: android/android-machine
