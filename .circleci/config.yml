@@ -36,7 +36,7 @@ jobs:
           command: >
             circleci tests glob "integration_test/*_test.dart" |
             circleci tests split --split-by=timings |
-            xargs -n 1 -print -exec flutter test
+            xargs -print -exec flutter test
 
 workflows:
   test_and_integration_test:
